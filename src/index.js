@@ -50,7 +50,7 @@ function displayTemperature(response) {
   if (weatherdescription === "Rain") {
     let precipitation = response.data.rain["1h"].toFixed(1);
     showPrecipitation.removeAttribute("style");
-    showPrecipitation.innerHTML = `Precipitaion: ${precipitation}`;
+    showPrecipitation.innerHTML = `Precipitaion: ${precipitation} <br/>`;
   } else {
     showPrecipitation.setAttribute("style", "display:none");
     precipitation = null;
