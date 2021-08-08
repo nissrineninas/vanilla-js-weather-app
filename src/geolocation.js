@@ -9,7 +9,7 @@ function getLocation(location) {
   let unit = "metric";
   let key = "ab10edc1d32f1dd18832060f89f088c3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?${coordinates}&units=${unit}&appid=${key}`;
-
+  console.log(apiUrl);
   axios.get(`${apiUrl}`).then(locationTemperature);
 }
 

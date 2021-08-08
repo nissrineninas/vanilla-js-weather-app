@@ -24,7 +24,7 @@ function displayTemperature(response) {
   let iconLink = `https://openweathermap.org/img/wn/${iconImage}.png`;
   let altText = response.data.weather[0].description;
   // weather last updated
-
+  console.log(precipitation);
   let lastUpdatedWeather = `weather data last updated at ${moment(
     response.data.dt,
     "X"
@@ -37,6 +37,7 @@ function displayTemperature(response) {
   let showWind = document.querySelector("#wind");
   let showIcon = document.querySelector("#weather-icon");
   let showLastUpdated = document.querySelector("#show-last-updated");
+  let showPrecipitation = document.querySelector("#precipitation");
 
   showCelsiusTemperature.innerHTML = celsiusTemperature;
   showWeatherDescription.innerHTML = weatherdescription;
@@ -46,6 +47,16 @@ function displayTemperature(response) {
   showIcon.setAttribute("src", iconLink);
   showIcon.setAttribute("alt", altText);
   showLastUpdated.innerHTML = lastUpdatedWeather;
+
+  if (weatherdescription === "Rain") {
+    let precipitation = response.data.rain["1h"].toFixed(1);
+    showPrecipitation.removeAttribute("style");
+    showPrecipitation.innerHTML = `Precipitaion: ${precipitation}`;
+  } else {
+    showPrecipitation.setAttribute("style", "display:none");
+    precipitation = null;
+    showPrecipitation.innerHTML = "";
+  }
 }
 
 function showDate(today) {
