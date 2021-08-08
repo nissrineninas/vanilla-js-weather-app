@@ -1,6 +1,3 @@
-let city = "jordan";
-let today = new Date();
-
 function searchCity(event) {
   event.preventDefault();
   let getUserCity = document.querySelector("#city-input");
@@ -24,6 +21,10 @@ function displayTemperature(response) {
   let iconImage = response.data.weather[0].icon;
   let iconLink = `https://openweathermap.org/img/wn/${iconImage}.png`;
   let altText = response.data.weather[0].description;
+  // weather last updated
+  let lastUpdatedWeatherDT = response.data.dt * 1000;
+  today = new Date(lastUpdatedWeatherDT);
+  let lastUpdatedWeather = `weather last updated: ${moment().calendar(today)}`;
 
   let showCity = document.querySelector("#city");
   let showWeatherDescription = document.querySelector("#weather-description");
@@ -31,6 +32,7 @@ function displayTemperature(response) {
   let showHumidity = document.querySelector("#humidity");
   let showWind = document.querySelector("#wind");
   let showIcon = document.querySelector("#weather-icon");
+  let showLastUpdated = document.querySelector("#show-last-updated");
 
   showCelsiusTemperature.innerHTML = celsiusTemperature;
   showWeatherDescription.innerHTML = weatherdescription;
@@ -39,6 +41,7 @@ function displayTemperature(response) {
   showWind.innerHTML = wind;
   showIcon.setAttribute("src", iconLink);
   showIcon.setAttribute("alt", altText);
+  showLastUpdated.innerHTML = lastUpdatedWeather;
 
   showDate(today);
 }
@@ -88,6 +91,9 @@ function showCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 }
+
+let city = "";
+let today = new Date();
 
 let celsiusTemperature = null;
 

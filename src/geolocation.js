@@ -41,7 +41,6 @@ function locationTemperature(response) {
   showIcon.setAttribute("alt", altText);
 
   header.innerHTML = myTemp;
-  console.log(response.data);
 }
 
 navigator.geolocation.getCurrentPosition(getLocation);
