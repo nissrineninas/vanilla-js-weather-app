@@ -13,6 +13,8 @@ function getCityWeather(myCity) {
 }
 
 function displayTemperature(response) {
+  showDate(today);
+
   celsiusTemperature = Math.round(response.data.main.temp);
   let searchedForCity = `${response.data.name}, ${response.data.sys.country}`;
   let weatherdescription = response.data.weather[0].main;
@@ -22,9 +24,11 @@ function displayTemperature(response) {
   let iconLink = `https://openweathermap.org/img/wn/${iconImage}.png`;
   let altText = response.data.weather[0].description;
   // weather last updated
-  let lastUpdatedWeatherDT = response.data.dt * 1000;
-  today = new Date(lastUpdatedWeatherDT);
-  let lastUpdatedWeather = `weather last updated: ${moment().calendar(today)}`;
+
+  let lastUpdatedWeather = `weather data last updated at ${moment(
+    response.data.dt,
+    "X"
+  ).format("hh:mm a")}`;
 
   let showCity = document.querySelector("#city");
   let showWeatherDescription = document.querySelector("#weather-description");
@@ -42,8 +46,6 @@ function displayTemperature(response) {
   showIcon.setAttribute("src", iconLink);
   showIcon.setAttribute("alt", altText);
   showLastUpdated.innerHTML = lastUpdatedWeather;
-
-  showDate(today);
 }
 
 function showDate(today) {
