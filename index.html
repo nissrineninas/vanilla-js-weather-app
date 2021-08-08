@@ -20,10 +20,14 @@
       <div class="widget-wrapper">
         <div class="weather-app">
           <div class="location-description">
-            <h1>Munich, Germany</h1>
+            <h1 id="city">Munich, Germany</h1>
             <ul>
-              <li>Tuesday 20:17</li>
-              <li>rainy</li>
+              <li id="show-date">Tuesday 20:17</li>
+              <li>
+                Last Updated at <span id="show-date-time">Tuesday 20:17</span>
+              </li>
+
+              <li id="weather-description">rainy</li>
             </ul>
           </div>
           <br />
@@ -36,7 +40,7 @@
                   class="float-left"
                 />
                 <span class="float-left">
-                  <strong>16</strong>
+                  <strong id="temperature-display">16</strong>
                   <span class="unit"
                     >°C | <a href="#" id="fahrenheit">°F</a></span
                   >
@@ -45,11 +49,10 @@
             </div>
             <div class="col-6">
               <ul>
-                <li>Precipitation: <span id="Precipitation">80%</span></li>
-                <li>Humidity: <span id="humidity">88%</span></li>
+                <li>Humidity: <span id="humidity">88</span>%</li>
                 <li>
-                  wind: <span id="wind">3 </span
-                  ><span id="speed-unit">km/h</span>
+                  wind: <span id="wind">3</span
+                  ><span id="speed-unit"> km/h</span>
                 </li>
               </ul>
             </div>
@@ -69,6 +72,7 @@
         </small>
       </div>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>
   </body>
 </html>

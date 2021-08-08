@@ -54,6 +54,7 @@ ul {
   margin-right: 5px;
   width: 90px;
 }
+
 .weather-app {
   border: 1px solid #dddddd;
   border-radius: 10px;
@@ -65,4 +66,8 @@ ul {
 }
 .container {
   padding: 20px;
+}
+
+#weather-description {
+  text-transform: capitalize;
 }
