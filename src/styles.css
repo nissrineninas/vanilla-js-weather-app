@@ -37,11 +37,12 @@ ul {
 }
 
 .weather-icon-temperature strong {
+  color: rgb(33, 33, 33);
   font-size: 60px;
   line-height: 60px;
 }
 .weather-icon-temperature .unit {
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 0;
   position: relative;
   top: -28px;
@@ -49,10 +50,15 @@ ul {
 .weather-icon-temperature .unit a {
   text-decoration: none;
 }
+.weather-icon-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
 .weather-icon-temperature img {
-  height: 90px;
+  height: 80px;
   margin-right: 5px;
-  width: 90px;
+  width: 80px;
 }
 
 .weather-app {

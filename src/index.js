@@ -65,14 +65,19 @@ function showDate(today) {
 }
 
 function showFahrenheitUnit() {
-  fahrenheitTemperatureClicked.setAttribute("style", "display:unset");
+  fahrenheitLink.setAttribute("style", "display:unset");
 }
+
 function showFahrenheitTemperature(event) {
   event.preventDefault();
-  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
   let showFahrenheitTemperature = document.querySelector(
     "#temperature-display"
   );
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  //remove the active class from the celsius link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+
   showFahrenheitTemperature.innerHTML = fahrenheitTemperature;
 }
 
@@ -80,6 +85,8 @@ function showCelsiusTemperature(event) {
   event.preventDefault();
   let showCelsiusTemperature = document.querySelector("#temperature-display");
   showCelsiusTemperature.innerHTML = celsiusTemperature;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 let celsiusTemperature = null;
@@ -87,13 +94,8 @@ let celsiusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);
 
-let fahrenheitTemperatureClicked = document.querySelector(
-  "#fahrenheit-convertor"
-);
-fahrenheitTemperatureClicked.addEventListener(
-  "click",
-  showFahrenheitTemperature
-);
+let fahrenheitLink = document.querySelector("#fahrenheit-convertor");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
-let celsiusTemperatureClicked = document.querySelector("#celsius-convertor");
-celsiusTemperatureClicked.addEventListener("click", showCelsiusTemperature);
+let celsiusLink = document.querySelector("#celsius-convertor");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
