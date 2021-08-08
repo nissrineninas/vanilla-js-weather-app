@@ -11,6 +11,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <link rel="stylesheet" href="src/styles.css" />
 
     <title>Vanilla JS WeatherApp</title>
@@ -35,17 +37,18 @@
                   value="Search"
                   id="search-clicked"
                   class="btn btn-outline-info"
+                  onclick="showFahrenheitUnit()"
                 />
               </div>
             </div>
           </form>
           <div class="location-description">
-            <h1 id="city">Munich, Germany</h1>
+            <h1 id="city">current location</h1>
             <ul>
-              <li id="show-date">Tuesday 20:17</li>
-              <li>Last Updated at <span id="show-date-time"></span></li>
+              <li id="show-date"></li>
+              <!-- <li>Last Updated at <span id="show-date-time"></span></li> -->
 
-              <li id="weather-description">rainy</li>
+              <li id="weather-description"></li>
             </ul>
           </div>
           <br />
@@ -54,9 +57,12 @@
               <span class="clearfix weather-icon-temperature">
                 <img src="#" alt="rainy" id="weather-icon" class="float-left" />
                 <span class="float-left">
-                  <strong id="temperature-display">16</strong>
-                  <span class="unit"
-                    >°C | <a href="#" id="fahrenheit">°F</a></span
+                  <strong id="temperature-display"></strong>
+                  <span class="unit">
+                    <a href="#" id="celsius-convertor">°C</a>
+                    <a href="#" id="fahrenheit-convertor" style="display: none"
+                      >| °F</a
+                    ></span
                   >
                 </span>
               </span>
@@ -82,7 +88,7 @@
         </small>
       </div>
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="src/geolocation.js"></script>
     <script src="src/index.js"></script>
   </body>
 </html>
