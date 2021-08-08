@@ -24,7 +24,6 @@ function displayTemperature(response) {
   let iconLink = `https://openweathermap.org/img/wn/${iconImage}.png`;
   let altText = response.data.weather[0].description;
   // weather last updated
-  console.log(precipitation);
   let lastUpdatedWeather = `weather data last updated at ${moment(
     response.data.dt,
     "X"
