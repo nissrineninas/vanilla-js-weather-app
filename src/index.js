@@ -1,7 +1,19 @@
 let city = "jordan";
-let apiKey = "ab10edc1d32f1dd18832060f89f088c3";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 let today = new Date();
+
+function searchCity(event) {
+  event.preventDefault();
+  let getUserCity = document.querySelector("#city-input");
+  city = getUserCity.value;
+  getCityWeather(city);
+}
+
+//ajax call to connect to weather api
+function getCityWeather(myCity) {
+  let apiKey = "ab10edc1d32f1dd18832060f89f088c3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
 function displayTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -12,8 +24,7 @@ function displayTemperature(response) {
   let iconImage = response.data.weather[0].icon;
   let iconLink = `https://openweathermap.org/img/wn/${iconImage}.png`;
   let altText = response.data.weather[0].description;
-  // let dateElement = response.data.dt;
-  console.log(response.data.dt);
+
   let showCity = document.querySelector("#city");
   let showWeatherDescription = document.querySelector("#weather-description");
   let showTemperature = document.querySelector("#temperature-display");
@@ -30,9 +41,6 @@ function displayTemperature(response) {
   showIcon.setAttribute("alt", altText);
 
   showDate(today);
-  // formatDate(dateElement);
-
-  console.log(response.data.weather[0].icon);
 }
 
 function showDate(today) {
@@ -55,4 +63,6 @@ function showDate(today) {
   let displayNow = document.querySelector("#show-date");
   displayNow.innerHTML = showDate;
 }
-axios.get(apiUrl).then(displayTemperature);
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", searchCity);

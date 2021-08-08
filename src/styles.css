@@ -64,10 +64,15 @@ ul {
 .location-description {
   padding-bottom: 20px;
 }
+
 .container {
   padding: 20px;
 }
 
 #weather-description::first-letter {
   text-transform: capitalize;
+}
+
+#search-form {
+  margin-bottom: 20px;
 }

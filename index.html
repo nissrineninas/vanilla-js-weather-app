@@ -19,6 +19,26 @@
     <div class="container">
       <div class="widget-wrapper">
         <div class="weather-app">
+          <form id="search-form">
+            <div class="row search-form-row">
+              <div class="col-10">
+                <input
+                  type="search"
+                  placeholder="Search for a city weather from here"
+                  id="city-input"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-2">
+                <input
+                  type="submit"
+                  value="Search"
+                  id="search-clicked"
+                  class="btn btn-outline-info"
+                />
+              </div>
+            </div>
+          </form>
           <div class="location-description">
             <h1 id="city">Munich, Germany</h1>
             <ul>
