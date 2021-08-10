@@ -60,7 +60,28 @@ ul {
   margin-right: 5px;
   width: 80px;
 }
-
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+.weather-forecast-temperature {
+  font-size: 13px;
+}
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+.weather-forecast-icon {
+  height: 30px;
+  width: 30px;
+}
+.weather-forecast .forecast-first-day::shadow {
+  color: green;
+}
+.weather-forecast {
+  color: black;
+  margin-top: 20px;
+  text-align: center;
+}
 .weather-app {
   border: 1px solid #dddddd;
   border-radius: 10px;
