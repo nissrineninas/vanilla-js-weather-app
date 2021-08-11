@@ -1,3 +1,5 @@
+let apiKey = "ab10edc1d32f1dd18832060f89f088c3";
+
 function searchCity(event) {
   event.preventDefault();
   let getUserCity = document.querySelector("#city-input");
@@ -7,13 +9,17 @@ function searchCity(event) {
 
 //ajax call to connect to weather api
 function getCityWeather(myCity) {
-  let apiKey = "ab10edc1d32f1dd18832060f89f088c3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
+  console.log(apiUrl);
 }
 
 function displayTemperature(response) {
   showDate(today);
+
+  let latitude = response.data.coord.lat;
+  let longitude = response.data.coord.lon;
+  connectForecastWeatherApi(latitude, longitude);
 
   celsiusTemperature = Math.round(response.data.main.temp);
   let searchedForCity = `${response.data.name}, ${response.data.sys.country}`;
