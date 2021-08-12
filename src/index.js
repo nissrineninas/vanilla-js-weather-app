@@ -62,7 +62,6 @@ function displayTemperature(response) {
     precipitation = null;
     showPrecipitation.innerHTML = "";
   }
-  displayForecast();
 }
 
 function showDate(today) {
