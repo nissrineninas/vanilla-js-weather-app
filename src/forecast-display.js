@@ -1,5 +1,6 @@
-function connectForecastWeatherApi(latitude, longitude) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely,hourly&appid=${apiKey}`;
+function connectForecastWeatherApi(latitude, longitude, unit) {
+  units = unit;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${units}&exclude=minutely,hourly&appid=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
   console.log(apiUrl);
 }
