@@ -13,7 +13,7 @@ h1 {
 }
 
 li {
-  color: rgb(112, 117, 122);
+  color: lightgray;
   display: table-row;
   font-size: 16px;
   font-weight: 100;
@@ -121,9 +121,8 @@ small {
   border: 5px outset rgba(12, 70, 131, 0.9);
   border-radius: 70px;
   box-shadow: inset 0px 0px 44px 7px rgba(12, 70, 131, 0.3);
-  padding: 20px;
-  padding-top: 100px;
-  width: 60%;
+  margin-top: 20px;
+  padding: 20px 20px;
 }
 
 #weather-description::first-letter {
