@@ -1,9 +1,10 @@
 body {
   font-family: arial, sans-serif;
+  background-color: aliceblue;
 }
 
 h1 {
-  color: #202124;
+  color: greenyellow;
   font: italic;
   font-size: 24px;
   font-weight: Bold;
@@ -27,7 +28,22 @@ ul {
   margin: 0;
   padding: 0;
 }
-.widget-wrapperr {
+
+small {
+  color: greenyellow;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.github-link {
+  text-decoration: none;
+}
+.github-link:hover {
+  color: greenyellow;
+  text-decoration: none;
+}
+.widget-wrapper {
   margin: 0px auto;
   max-width: 600px;
 }
@@ -51,7 +67,7 @@ ul {
   text-decoration: none;
 }
 .weather-icon-temperature .active {
-  color: rgb(33, 33, 33);
+  color: greenyellow;
   cursor: default;
 }
 
@@ -75,10 +91,10 @@ ul {
   width: 30px;
 }
 .weather-forecast .forecast-first-day::shadow {
-  color: green;
+  color: greenyellow;
 }
 .weather-forecast {
-  color: black;
+  color: greenyellow;
   margin-top: 20px;
   text-align: center;
 }
@@ -93,13 +109,27 @@ ul {
 }
 
 .container {
+  background: linear-gradient(
+    109.6deg,
+    rgb(20, 30, 48) 11.2%,
+    rgb(36, 59, 85) 91.1%
+  );
+
+  border: 5px outset rgba(12, 70, 131, 0.9);
+  border-radius: 70px;
+  box-shadow: inset 0px 0px 44px 7px rgba(12, 70, 131, 0.3);
   padding: 20px;
+  padding-top: 100px;
+  width: 60%;
 }
 
 #weather-description::first-letter {
   text-transform: capitalize;
 }
 
+#temperature-display {
+  color: yellowgreen;
+}
 #search-form {
   margin-bottom: 20px;
 }

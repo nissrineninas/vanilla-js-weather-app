@@ -4,25 +4,7 @@ function connectForecastWeatherApi(latitude, longitude, unit) {
   axios.get(apiUrl).then(displayForecast);
   console.log(apiUrl);
 }
-// alternatively this function can be used to display the forecast day
-//  but it is too redundant in the code
-// instead moment was used as it is much less code to write and repeat
-// use  formatDay(forecastDay.dt) instead of day in displayForecast
-// to show the day in the widget
-// function formatDay(timestamp) {
-//   let date = new Date(timestamp * 1000);
-//   let day = date.getDay();
-//   let days = [
-//     "Sunday",
-//     "Monday",
-//     "Tuesday",
-//     "Wednesday",
-//     "Thursday",
-//     "Friday",
-//     "Saturday",
-//   ];
-//   return days[day];
-// }
+
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
