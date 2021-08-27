@@ -61,6 +61,7 @@ function searchCity(event) {
 function getCityWeather(myCity) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
+  console.log(apiUrl);
 }
 
 // manipulate of the html content takes place here for weather data to display
@@ -74,7 +75,9 @@ function displayTemperature(response) {
   temperature = Math.round(response.data.main.temp);
   city = response.data.name;
   let searchedForCity = `${response.data.name}, ${response.data.sys.country}`;
+  let weather = response.data.weather[0].main;
   let weatherdescription = response.data.weather[0].description;
+
   let humidity = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed);
   let iconImage = response.data.weather[0].icon;
@@ -110,7 +113,7 @@ function displayTemperature(response) {
 
   //control viewing the precipitation or the code breaks when there's no rain
   //with error "cannot set innerHTML to null"
-  if (weatherdescription === "Rain") {
+  if (weather === "Rain") {
     let precipitation = response.data.rain["1h"].toFixed(1);
     showPrecipitation.removeAttribute("style");
     showPrecipitation.innerHTML = `Precipitaion: ${precipitation} mm<br/>`;
