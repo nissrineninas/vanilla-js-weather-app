@@ -60,7 +60,6 @@ function searchCity(event) {
 //ajax call to connect to weather api
 function getCityWeather(myCity) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-  console.log("helpme");
   axios
     .get(apiUrl)
     .then(displayTemperature)
