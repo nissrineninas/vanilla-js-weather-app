@@ -60,7 +60,15 @@ function searchCity(event) {
 //ajax call to connect to weather api
 function getCityWeather(myCity) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-  axios.get(apiUrl).then(displayTemperature);
+  console.log("helpme");
+  axios
+    .get(apiUrl)
+    .then(displayTemperature)
+    .catch(function (error) {
+      alert(
+        "Sorry, that city doesn't seem to exist! Are you sure it is spelt right?"
+      );
+    });
 }
 
 // manipulate of the html content takes place here for weather data to display
