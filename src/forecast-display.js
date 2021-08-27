@@ -1,10 +1,11 @@
+//connect to api using latitude and longitude for the forecast
 function connectForecastWeatherApi(latitude, longitude, unit) {
   units = unit;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${units}&exclude=minutely,hourly&appid=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
-  console.log(apiUrl);
 }
 
+//add html code for the forecast including the fetched data
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
